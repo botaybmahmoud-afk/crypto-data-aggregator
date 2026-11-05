@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # تحديد بيئة نظام تشغيل مستقرة ومتوافقة
     permissions:
       contents: write
 
@@ -17,17 +17,17 @@ jobs:
       with:
         clean: true
 
-    - name: 2. تهيئة بيئة Node.js الحديثة والمستقرة
+    - name: 2. تهيئة بيئة Node.js الحديثة والمستقرة لعام 2026
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '24' # الترقية الرسمية المتوافقة مع خوادم جيت هوب الحديثة
 
     - name: 3. تشغيل ماكينة حصاد وتقارير البيانات
       run: node miner.js
 
     - name: 4. حفظ وتثبيت حزمة البيانات الجديدة مجاناً تلقائياً
       run: |
-        git Corp --global user.name "GitHub Action"
+        git config --global user.name "GitHub Action"
         git config --global user.email "actions@github.com"
         git add market-live-feed.json
         git commit -m "⚡ تحديث وإنشاء ملف حزمة البيانات السحابية" || echo "No changes to commit"
