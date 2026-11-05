@@ -1,0 +1,33 @@
+name: Continuous Crypto Data Aggregator
+
+on:
+  schedule:
+    - cron: '0 */1 * * *' # يعمل تلقائياً وبالمجان تماماً كل ساعة لتحديث حزمة البيانات
+  workflow_dispatch: # تفعيل يدوي فوري بنقرة واحدة من هاتفك عند الحاجة
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: 1. سحب الكود وتنظيف بيئة السيرفر
+      uses: actions/checkout@v4
+      with:
+        clean: true
+
+    - name: 2. تهيئة بيئة Node.js الحديثة والمستقرة
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: 3. تشغيل ماكينة حصاد وتقارير البيانات
+      run: node miner.js
+
+    - name: 4. حفظ وتثبيت حزمة البيانات الجديدة مجاناً تلقائياً
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "actions@github.com"
+        git add market-live-feed.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "⚡ تحديث تلقائي لحزمة البيانات ومحفظة بينانس مدمجة" && git push)
