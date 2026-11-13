@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-11-13T14:00:00.847Z",
-  "assetPair": "BTC/USDT",
-  "sourceA": "Binance",
-  "sourceB": "OKX",
-  "liquidityGapPercent": "0.6774%",
-  "availableVolumeBTC": "3.10",
+  "timestamp": "2026-11-13T14:48:30.713Z",
+  "assetPair": "SOL/USDT",
+  "sourceA": "Coinbase",
+  "sourceB": "Binance",
+  "liquidityGapPercent": "0.7911%",
+  "availableVolumeBTC": "8.64",
   "routingTargetWallet": "TNZbcszS2cxmfwgafe7BK1Wz1PuXJyDURb",
   "status": "READY_FOR_API_LIQUIDATION"
 }
