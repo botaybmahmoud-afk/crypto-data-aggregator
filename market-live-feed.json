@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-11-21T04:44:54.834Z",
+  "timestamp": "2026-11-21T05:45:07.150Z",
   "assetPair": "ETH/USDT",
-  "sourceA": "Coinbase",
+  "sourceA": "Kraken",
   "sourceB": "OKX",
-  "liquidityGapPercent": "0.5235%",
-  "availableVolumeBTC": "10.48",
+  "liquidityGapPercent": "0.2700%",
+  "availableVolumeBTC": "5.72",
   "routingTargetWallet": "TNZbcszS2cxmfwgafe7BK1Wz1PuXJyDURb",
   "status": "READY_FOR_API_LIQUIDATION"
 }
